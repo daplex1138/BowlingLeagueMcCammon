@@ -39,10 +39,6 @@ public class GalleryArtHelper {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		//TypedQuery<GalleryArtPiece> typedQuery = em.createQuery("SELECT aw FROM artwork aw where aw.id = :selectedID", GalleryArtPiece.class);
-		//typedQuery.setParameter("selectedID", toDelete.getId());
-		//typedQuery.setMaxResults(1);
-		//GalleryArtPiece result = typedQuery.getSingleResult();
 		GalleryArtPiece toRemove = em.find(GalleryArtPiece.class, toDelete.getId());
 		em.remove(toRemove);
 		em.getTransaction().commit();
