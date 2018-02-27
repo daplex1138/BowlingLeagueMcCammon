@@ -51,7 +51,7 @@ public class insertPlayerServlet extends HttpServlet {
 		PlayerHelper playerDao = new PlayerHelper();
 		playerDao.insertItem(player);
 		
-		getServletContext().getRequestDispatcher("/insertPlayer.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/preparePlayerInsertServlet").forward(request, response);
 	}
 
 }
