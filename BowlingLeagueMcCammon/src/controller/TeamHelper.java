@@ -37,4 +37,18 @@ public class TeamHelper {
 		em.close();
 		return foundItem;
 	}
+	public void deleteItem(Team toDelete) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		TypedQuery<Team> typedQuery = em.createQuery("select li from Team li where li.teamName = :selectedTeam and li.teamType = :selectedTeamType", Team.class);
+		typedQuery.setParameter("selectedTeam", toDelete.getTeamName());
+		typedQuery.setParameter("selectedTeamType", toDelete.getTeamType());
+		typedQuery.setMaxResults(1);
+		Team result = typedQuery.getSingleResult();
+		
+		em.remove(result);
+		em.getTransaction().commit();
+		em.close();
+		
+	}
 }

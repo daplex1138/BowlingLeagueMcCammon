@@ -49,7 +49,7 @@ public class insertPlayerServlet extends HttpServlet {
 		
 		Player player = new Player(firstName, lastName, phoneNumber, screenName, team);
 		PlayerHelper playerDao = new PlayerHelper();
-		playerDao.insertItem(player);
+		playerDao.insertPlayer(player);
 		
 		getServletContext().getRequestDispatcher("/preparePlayerInsertServlet").forward(request, response);
 	}
